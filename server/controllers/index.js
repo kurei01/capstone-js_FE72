@@ -164,6 +164,9 @@ function updateProduct() {
       getListProduct();
       getEle("btnCloseModal").click();
       getEle("btnReset").click();
+
+      getEle("btnSaveInfo").style.display = "block";
+      getEle("btnUpdate").style.display = "none";
     })
     .catch(function (err) {
       console.log(err);
