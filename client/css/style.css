@@ -1,0 +1,246 @@
+body {
+  background-color: #fdf5df;
+  color: #2c3639;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  height: 2rem;
+}
+
+.admin a {
+  text-decoration: none;
+}
+.admin p {
+  color: #f32424;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 0;
+  text-align: center;
+}
+.admin a:hover p{
+  color: #001D6E;
+}
+
+.app .item {
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  height: 100%;
+}
+
+.app .item:hover {
+  transition: all 0.5s ease-in-out;
+  transform: scale(1.1);
+}
+
+.app .item img {
+  padding-top: 1rem;
+  width: 150px;
+}
+
+.app .item .addCart {
+  background: #82a284;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 10px 20px;
+  box-shadow: 2px 2px 4px #82a284, -2px -2px 4px #fff;
+  transition: all 0.4s;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f5f9fe;
+}
+
+.app .item .addCart:hover {
+  background-color: #f5f9fe;
+  color: #82a284;
+}
+
+.header {
+  background: linear-gradient(to right, #66bfbf, #73a9ad, #8879b0);
+  padding: 0.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.header .filter {
+  display: flex;
+  width: 300px;
+}
+
+.header .filter label {
+  width: 45%;
+  line-height: 38px;
+  color: #001d6e;
+  font-weight: 600;
+}
+.header .filter select {
+  width: 55%;
+}
+.header .filter select:focus {
+  border: 2px solid #e04d01;
+  box-shadow: none;
+}
+
+.header .cart-wrap .cart-btn {
+  position: relative;
+  font-size: 25px;
+  width: 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s;
+  color: orange;
+  background-color: transparent;
+}
+.header .cart-wrap .cart-btn:hover {
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.header .cart-wrap .cart-btn .total-qty {
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  background: white;
+  color: black;
+  border-radius: 50%;
+  border: 1px solid orange;
+  text-align: center;
+  line-height: 1rem;
+  font-weight: 300;
+  font-size: 0.7rem;
+  top: 0.1rem;
+  right: 0.1rem;
+  user-select: none;
+}
+
+.header .cart-wrap .cart-modal {
+  background-color: #e8f9fd;
+  width: 60%;
+  padding: 1rem;
+}
+
+.header .cart-wrap .cart-modal .btn-close:focus {
+  box-shadow: none;
+}
+
+.header .cart-wrap .cart-modal .modal-main .log {
+  text-align: center;
+  opacity: 0.5;
+  font-size: 2rem;
+  padding-block: 3rem;
+}
+
+.header .cart-wrap .cart-modal .modal-footer .price {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.header .cart-wrap .cart-modal .modal-footer button {
+  padding: 0.75rem 2rem;
+  border-radius: 1rem;
+  border: 1px solid #5ebec4;
+  background-color: transparent;
+  color: #5ebec4;
+  font-size: 1.25rem;
+  font-weight: 500;
+  transition: 0.6s;
+  margin-left: 2rem;
+}
+.header .cart-wrap .cart-modal .modal-footer button:hover {
+  box-shadow: inset 20em 0 0 0 #5ebec4;
+  color: #e8f9fd;
+}
+
+.loader {
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid #3498db;
+  /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.cart-item {
+  height: 6rem;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+}
+
+.cart-img {
+  margin-left: 1rem;
+  width: 10%;
+  height: 6rem;
+}
+
+.cart-img img {
+  width: 100%;
+  height: 5rem;
+  padding-top: 0.2rem;
+}
+
+.cart-item .name {
+  font-size: 1.3rem;
+  width: 20%;
+}
+
+.cart-item .qty-change {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.cart-item .qty-change .btn-qty {
+  height: 5rem;
+  border: none;
+  line-height: 5rem;
+  padding: 0 2rem;
+  color: #eb1d36;
+  background-color: transparent;
+}
+.cart-item .qty-change .btn-qty:hover {
+  color: #c9bbcf;
+}
+
+.cart-item .qty-change .qty {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #395b64;
+}
+
+.cart-item .price {
+  margin: 0;
+  color: #395b64;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.cart-item .trash {
+  border: none;
+  color: #94b49f;
+  font-size: 1.5rem;
+}
+.cart-item .trash:hover {
+  color: #eb1d36;
+}
