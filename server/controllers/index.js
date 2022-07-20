@@ -112,7 +112,7 @@ function getProduct(id) {
   })
     .then(function (res) {
       getEle("btnThemSP").click();
-      getEle("btnReset").click();
+      // getEle("btnReset").click();
 
       getEle("productId").value = res.data.id;
       getEle("name").value = res.data.name;
@@ -133,15 +133,15 @@ function getProduct(id) {
 }
 
 function updateProduct() {
-  let proID = getEle("productId").value
-  let prodName = getEle("name").value
-  let prodPrice = getEle("price").value
-  let prodScreen = getEle("screen").value
-  let prodBackCamera = getEle("backCamera").value
-  let prodFrontCamera = getEle("frontCamera").value
-  let prodImage = getEle("img").value
-  let prodDescription = getEle("desc").value
-  let prodType = getEle("type").value
+  let proID = getEle("productId").value;
+  let prodName = getEle("name").value;
+  let prodPrice = getEle("price").value;
+  let prodScreen = getEle("screen").value;
+  let prodBackCamera = getEle("backCamera").value;
+  let prodFrontCamera = getEle("frontCamera").value;
+  let prodImage = getEle("img").value;
+  let prodDescription = getEle("desc").value;
+  let prodType = getEle("type").value;
 
   let product = new Product(
     prodName,
@@ -152,8 +152,7 @@ function updateProduct() {
     prodImage,
     prodDescription,
     prodType
-  )
-
+  );
 
   axios({
     url: "https://62ce76a0486b6ce82645a474.mockapi.io/Products/" + proID,
@@ -164,7 +163,6 @@ function updateProduct() {
       getListProduct();
       getEle("btnCloseModal").click();
       getEle("btnReset").click();
-
       getEle("btnSaveInfo").style.display = "block";
       getEle("btnUpdate").style.display = "none";
     })
