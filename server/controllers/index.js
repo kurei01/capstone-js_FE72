@@ -61,7 +61,7 @@ function createProduct() {
   let prodBackCam = getEle("backCamera").value;
   let prodFrontCam = getEle("frontCamera").value;
   let prodImage = getEle("img").value;
-  let prodDescription = getEle("MoTa").value;
+  let prodDescription = getEle("desc").value;
   let prodType = getEle("type").value;
 
   let product = new Product(
@@ -112,6 +112,7 @@ function getProduct(id) {
   })
     .then(function (res) {
       getEle("btnThemSP").click();
+      getEle("btnReset").click();
 
       getEle("productId").value = res.data.id;
       getEle("name").value = res.data.name;
@@ -124,7 +125,7 @@ function getProduct(id) {
       getEle("type").value = res.data.type;
 
       getEle("btnSaveInfo").style.display = "none";
-      getEle("btnUpdate").style.display = "inline";
+      getEle("btnUpdate").style.display = "block";
     })
     .catch(function (err) {
       console.log(err);
@@ -143,7 +144,6 @@ function updateProduct() {
   let prodType = getEle("type").value
 
   let product = new Product(
-    proID,
     prodName,
     prodPrice,
     prodScreen,
@@ -156,14 +156,14 @@ function updateProduct() {
 
 
   axios({
-    url: "https://62ce76a0486b6ce82645a474.mockapi.io/Products/" + prodId,
+    url: "https://62ce76a0486b6ce82645a474.mockapi.io/Products/" + proID,
     method: "PUT",
     data: product,
   })
     .then(function (res) {
-      document.getElementById("btnUpdate").style.display = "block"
-      document.getElementById("btnSaveInfo").style.display = "none"
       getListProduct();
+      getEle("btnCloseModal").click();
+      getEle("btnReset").click();
     })
     .catch(function (err) {
       console.log(err);
