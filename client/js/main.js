@@ -176,10 +176,18 @@ const clearCart = () => {
 getEle("btn-clear").addEventListener("click", clearCart);
 
 const purChase = () => {
-  let total = 0;
+  if (cart.length === 0) return;
 
+  let total = 0;
   cart.forEach((item) => (total += item.quantity * item.price));
-  
+
+  let order = confirm(`bạn có muốn thanh toán đơn hàng trị giá:$${total}`);
+  if (order) {
+    clearCart();
+    alert("cám ơn bạn đã mua sản phẩm.");
+  } else {
+    return;
+  }
 };
 
 //save to local

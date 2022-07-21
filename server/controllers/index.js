@@ -55,6 +55,8 @@ function renderProducts(data) {
 }
 
 function createProduct() {
+  let valid = validateForm();
+  if (!valid) return;
   let prodName = getEle("name").value;
   let prodPrice = getEle("price").value;
   let prodScreen = getEle("screen").value;
@@ -169,4 +171,69 @@ function updateProduct() {
     .catch(function (err) {
       console.log(err);
     });
+}
+
+//VALIDATE
+function validateForm() {
+  var isValid = true;
+
+  let prodName = getEle("name").value;
+  let prodPrice = getEle("price").value;
+  let prodScreen = getEle("screen").value;
+  let prodBackCamera = getEle("backCamera").value;
+  let prodFrontCamera = getEle("frontCamera").value;
+  let prodType = getEle("type").value;
+
+  isValid &= checkRequired(prodName, "productName");
+
+  isValid &=
+    checkRequired(prodPrice, "productPrice") &&
+    checkNumber(prodPrice, "productPrice");
+
+  isValid &= checkRequired(prodScreen, "productScreen");
+
+  isValid &= checkRequired(prodBackCamera, "productBackCam");
+
+  isValid &= checkRequired(prodFrontCamera, "productFrontCam");
+
+  isValid &= checkRequired(prodType, "productType");
+  return isValid;
+}
+
+function checkRequired(val, spanId) {
+  if (val.length > 0) {
+    getEle(spanId).innerHTML = "";
+    return true;
+  }
+  getEle(spanId).innerHTML = "* Trường này bắt buộc nhập";
+  return false;
+}
+
+function checkCharacter(val, spanId) {
+  var letter =
+    "^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" +
+    "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" +
+    "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$";
+
+  if (val.match(letter)) {
+    //true
+    getEle(spanId).innerHTML = "";
+    return true;
+  }
+
+  //false
+  getEle(spanId).innerHTML = "* Vui lòng nhập chuỗi kí tự";
+  return false;
+}
+
+function checkNumber(val, spanId) {
+  var letter = /^[0-9]+$/;
+  if (val.match(letter)) {
+    getEle(spanId).innerHTML = "";
+    return true;
+  }
+
+  //false
+  getEle(spanId).innerHTML = "* Vui lòng nhập số";
+  return false;
 }
